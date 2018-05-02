@@ -1,4 +1,4 @@
-# svelte-scroller
+# svelte-scroller ([demo](https://svelte.technology/repl?version=2.4.1&gist=39be370bdc929da668cf205b04a6c822))
 
 A scroller component for Svelte apps.
 
