@@ -1,8 +1,8 @@
 {
   "name": "@sveltejs/svelte-scroller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A <Scroller> component for Svelte apps",
-  "svelte": "src/index.html",
+  "svelte": "src/Scroller.html",
   "module": "index.mjs",
   "main": "index.js",
   "scripts": {
