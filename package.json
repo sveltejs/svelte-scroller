@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm test",
-    "test": "node test/runner.js",
+    "test": "node index.js && node test/runner.js",
     "test:browser": "npm run build && serve test/public",
     "pretest": "npm run build"
   },
