@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 1.0.3
+
+* Whoops
+
 ## 1.0.2
 
 * Make SSR friendly
