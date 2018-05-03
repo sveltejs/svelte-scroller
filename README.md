@@ -42,7 +42,7 @@ yarn add @sveltejs/svelte-scroller
 </script>
 ```
 
-You must have one `slot="background` element and one `slot="foreground"` element — see [composing with &lt;slot&gt;](https://svelte.technology/guide#composing-with-slot) for more info.
+You must have one `slot="background"` element and one `slot="foreground"` element — see [composing with &lt;slot&gt;](https://svelte.technology/guide#composing-with-slot) for more info.
 
 
 ## Parameters
