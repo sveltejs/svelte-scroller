@@ -1,5 +1,10 @@
 # svelte-scroller changelog
 
+## 1.0.4
+
+* Remove instance from scroll manager on destroy
+* Abort scroll handler if viewport is offscreen in browsers without IntersectionObserver
+
 ## 1.0.3
 
 * Whoops

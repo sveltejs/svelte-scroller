@@ -158,6 +158,10 @@
 			manager.add(this);
 		},
 
+		ondestroy() {
+			manager.remove(this);
+		},
+
 		methods: {
 			handleScroll() {
 				const { top_px, bottom_px, threshold_px, parallax } = this.get();
@@ -165,6 +169,10 @@
 				// determine fix state
 				const foreground = this.refs.foreground.getBoundingClientRect();
 				const background = this.refs.background.getBoundingClientRect();
+
+				// only update while the foreground is visible
+				// (only affects browsers without IntersectionObserver)
+				if (foreground.top > window.innerHeight || foreground.bottom < 0) return;
 
 				const foreground_height = foreground.bottom - foreground.top;
 				const background_height = background.bottom - background.top;
