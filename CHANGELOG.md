@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 1.0.5
+
+* Handle case where scroller abruptly disappears from viewport
+
 ## 1.0.4
 
 * Remove instance from scroll manager on destroy

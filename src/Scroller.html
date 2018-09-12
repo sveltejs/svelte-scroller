@@ -71,6 +71,7 @@
 				if (entry.isIntersecting) {
 					if (index === -1) scrollers.push(scroller);
 				} else {
+					scroller.handleScroll();
 					if (index !== -1) scrollers.splice(index, 1);
 				}
 			});
@@ -170,10 +171,6 @@
 				const foreground = this.refs.foreground.getBoundingClientRect();
 				const background = this.refs.background.getBoundingClientRect();
 
-				// only update while the foreground is visible
-				// (only affects browsers without IntersectionObserver)
-				if (foreground.top > window.innerHeight || foreground.bottom < 0) return;
-
 				const foreground_height = foreground.bottom - foreground.top;
 				const background_height = background.bottom - background.top;
 
@@ -204,18 +201,18 @@
 						Math.round(top_px - p * (background_height - available_space)) :
 						top_px;
 					fixed = true;
-				}
 
-				for (index = 0; index < this.sections.length; index += 1) {
-					const section = this.sections[index];
-					const { top } = section.getBoundingClientRect();
+					for (index = 0; index < this.sections.length; index += 1) {
+						const section = this.sections[index];
+						const { top } = section.getBoundingClientRect();
 
-					const next = this.sections[index + 1];
-					const bottom = next ? next.getBoundingClientRect().top : this.refs.foreground.getBoundingClientRect().bottom;
+						const next = this.sections[index + 1];
+						const bottom = next ? next.getBoundingClientRect().top : this.refs.foreground.getBoundingClientRect().bottom;
 
-					if (bottom >= threshold_px) {
-						offset = (threshold_px - top) / (bottom - top);
-						break;
+						if (bottom >= threshold_px) {
+							offset = (threshold_px - top) / (bottom - top);
+							break;
+						}
 					}
 				}
 
