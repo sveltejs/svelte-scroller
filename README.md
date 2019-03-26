@@ -1,4 +1,4 @@
-# svelte-scroller ([demo](https://svelte.technology/repl?version=2.4.1&gist=39be370bdc929da668cf205b04a6c822))
+# svelte-scroller ([demo](https://v3.svelte.technology/repl?version=3.0.0-beta.21&gist=76846b7ae27b3a21becb64ffd6e9d4a6))
 
 A scroller component for Svelte apps.
 
@@ -12,6 +12,14 @@ yarn add @sveltejs/svelte-scroller
 ## Usage
 
 ```html
+<script>
+  import Scroller from '@sveltejs/svelte-scroller';
+</script>
+
+<style>
+  section { height: 80vh; }
+</style>
+
 <Scroller top={0.2} bottom={0.8} bind:index bind:offset bind:progress>
   <div slot="background">
     <p>
@@ -28,18 +36,6 @@ yarn add @sveltejs/svelte-scroller
     <section>This is the third section.</section>
   </div>
 </Scroller>
-
-<style>
-  section { height: 80vh; }
-</style>
-
-<script>
-  import Scroller from '@sveltejs/svelte-scroller';
-
-  export default {
-    components: { Scroller }
-  };
-</script>
 ```
 
 You must have one `slot="background` element and one `slot="foreground"` element — see [composing with &lt;slot&gt;](https://svelte.technology/guide#composing-with-slot) for more info.
