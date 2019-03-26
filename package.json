@@ -2,15 +2,13 @@
   "name": "@sveltejs/svelte-scroller",
   "version": "1.0.5",
   "description": "A <Scroller> component for Svelte apps",
-  "svelte": "src/Scroller.html",
-  "module": "index.mjs",
-  "main": "index.js",
+  "svelte": "Scroller.svelte",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -cw",
     "prepublishOnly": "npm test",
-    "test": "node index.js && node test/runner.js",
-    "test:browser": "npm run build && serve test/public",
+    "test": "node test/runner.js",
+    "test:browser": "npm run build && sirv test/public",
     "pretest": "npm run build"
   },
   "devDependencies": {
@@ -21,7 +19,8 @@
     "rollup-plugin-commonjs": "^9.2.2",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-svelte": "^5.0.3",
-    "serve": "^10.1.2",
+    "sirv": "^0.2.2",
+    "sirv-cli": "^0.2.3",
     "svelte": "^3.0.0-beta.21",
     "tap-dot": "^2.0.0",
     "tape-modern": "^1.1.1"
@@ -36,8 +35,5 @@
     "src",
     "index.mjs",
     "index.js"
-  ],
-  "dependencies": {
-    "svelte-extras": "^2.0.2"
-  }
+  ]
 }
