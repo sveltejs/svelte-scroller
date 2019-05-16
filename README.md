@@ -63,7 +63,7 @@ By binding to these properties, you can track the user's behaviour:
 * `progress` — how far the foreground has travelled, where 0 is the top of the foreground crossing `top`, and 1 is the bottom crossing `bottom`
 * `count` — the number of sections
 
-You can rename them with e.g. `bind:index=i`.
+You can rename them with e.g. `bind:index={i}`.
 
 
 
