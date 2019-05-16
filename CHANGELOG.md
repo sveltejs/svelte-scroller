@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.0
+
+* Update for Svelte 3
+
 ## 1.0.5
 
 * Handle case where scroller abruptly disappears from viewport
