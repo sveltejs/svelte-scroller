@@ -1,5 +1,4 @@
-import svelte from 'svelte';
-import Scroller from '../..';
+import App from './App.svelte';
 import { assert, test, done } from 'tape-modern';
 
 // setup
@@ -24,21 +23,21 @@ assert.htmlEqual = (a, b, msg) => {
 };
 
 // tests
-test('has expected defaults', t => {
-	const scroller = new Scroller({
+test('exists', t => {
+	const app = new App({
 		target
 	});
 
-	t.equal(scroller.get().index, 0);
-	t.equal(scroller.get().count, 0);
-	t.equal(scroller.get().top, 0);
-	t.equal(scroller.get().bottom, 1);
-	t.equal(scroller.get().threshold, 0.5);
+	assert.equal(app.scroller.index, -1);
+	assert.equal(app.scroller.count, 0);
+	assert.equal(app.scroller.top, 0);
+	assert.equal(app.scroller.bottom, 1);
+	assert.equal(app.scroller.threshold, 0.5);
 
-	scroller.destroy();
+	// TODO write some more tests
+
+	app.$destroy();
 });
-
-// TODO write more tests
 
 // this allows us to close puppeteer once tests have completed
 window.done = done;

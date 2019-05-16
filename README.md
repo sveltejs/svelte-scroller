@@ -1,4 +1,4 @@
-# svelte-scroller ([demo](https://svelte.technology/repl?version=2.4.1&gist=39be370bdc929da668cf205b04a6c822))
+# svelte-scroller ([demo](https://svelte.dev/repl/76846b7ae27b3a21becb64ffd6e9d4a6?version=3))
 
 A scroller component for Svelte apps.
 
@@ -12,6 +12,14 @@ yarn add @sveltejs/svelte-scroller
 ## Usage
 
 ```html
+<script>
+  import Scroller from '@sveltejs/svelte-scroller';
+</script>
+
+<style>
+  section { height: 80vh; }
+</style>
+
 <Scroller top={0.2} bottom={0.8} bind:index bind:offset bind:progress>
   <div slot="background">
     <p>
@@ -28,21 +36,9 @@ yarn add @sveltejs/svelte-scroller
     <section>This is the third section.</section>
   </div>
 </Scroller>
-
-<style>
-  section { height: 80vh; }
-</style>
-
-<script>
-  import Scroller from '@sveltejs/svelte-scroller';
-
-  export default {
-    components: { Scroller }
-  };
-</script>
 ```
 
-You must have one `slot="background"` element and one `slot="foreground"` element — see [composing with &lt;slot&gt;](https://svelte.technology/guide#composing-with-slot) for more info.
+You must have one `slot="background"` element and one `slot="foreground"` element — see [composing with &lt;slot&gt;](https://svelte.dev/tutorial/slots) for more info.
 
 
 ## Parameters
@@ -67,7 +63,7 @@ By binding to these properties, you can track the user's behaviour:
 * `progress` — how far the foreground has travelled, where 0 is the top of the foreground crossing `top`, and 1 is the bottom crossing `bottom`
 * `count` — the number of sections
 
-You can rename them with e.g. `bind:index=i`.
+You can rename them with e.g. `bind:index={i}`.
 
 
 
@@ -78,26 +74,6 @@ If you're using webpack with [svelte-loader](https://github.com/sveltejs/svelte-
 If you're using Rollup with [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte), this will happen automatically.
 
 
-
-## Using without Svelte
-
-You can also use `<Scroller>` in a non-Svelte app:
-
-```js
-import Scroller from '@sveltejs/svelte-scroller';
-
-const background = document.createElement('div');
-background.innerHTML = someHTML;
-
-const foreground = document.createElement('div');
-foreground.innerHTML = someMoreHTML;
-
-const scroller = new Scroller({
-  target: document.querySelector('#scroller-target'),
-  data: { top: 0.1, bottom: 0.9 },
-  slots: { background, foreground }
-});
-```
 
 ## License
 
