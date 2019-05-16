@@ -75,26 +75,6 @@ If you're using Rollup with [rollup-plugin-svelte](https://github.com/rollup/rol
 
 
 
-## Using without Svelte
-
-You can also use `<Scroller>` in a non-Svelte app:
-
-```js
-import Scroller from '@sveltejs/svelte-scroller';
-
-const background = document.createElement('div');
-background.innerHTML = someHTML;
-
-const foreground = document.createElement('div');
-foreground.innerHTML = someMoreHTML;
-
-const scroller = new Scroller({
-  target: document.querySelector('#scroller-target'),
-  data: { top: 0.1, bottom: 0.9 },
-  slots: { background, foreground }
-});
-```
-
 ## License
 
 [LIL](LICENSE)
