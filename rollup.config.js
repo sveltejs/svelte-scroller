@@ -12,7 +12,9 @@ export default [
 		plugins: [
 			resolve(),
 			commonjs(),
-			svelte()
+			svelte({
+				accessors: true
+			})
 		]
 	}
 ];

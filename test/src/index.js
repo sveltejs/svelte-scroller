@@ -28,7 +28,13 @@ test('exists', t => {
 		target
 	});
 
-	// TODO write some tests
+	assert.equal(app.scroller.index, -1);
+	assert.equal(app.scroller.count, 0);
+	assert.equal(app.scroller.top, 0);
+	assert.equal(app.scroller.bottom, 1);
+	assert.equal(app.scroller.threshold, 0.5);
+
+	// TODO write some more tests
 
 	app.$destroy();
 });

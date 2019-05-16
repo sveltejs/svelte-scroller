@@ -179,6 +179,20 @@
 	}
 </script>
 
+<svelte:window bind:innerHeight={wh} on:resize={handle_resize}/>
+
+<svelte-scroller-outer bind:this={outer}>
+	<svelte-scroller-background-container class='background-container' {style}>
+		<svelte-scroller-background bind:this={background}>
+			<slot name="background"></slot>
+		</svelte-scroller-background>
+	</svelte-scroller-background-container>
+
+	<svelte-scroller-foreground bind:this={foreground}>
+		<slot name="foreground"></slot>
+	</svelte-scroller-foreground>
+</svelte-scroller-outer>
+
 <style>
 	svelte-scroller-outer {
 		display: block;
@@ -217,17 +231,3 @@
 		transform: translate3d(0, 0, 0); */
 	}
 </style>
-
-<svelte:window bind:innerHeight={wh} on:resize={handle_resize}/>
-
-<svelte-scroller-outer bind:this={outer}>
-	<svelte-scroller-background-container class='background-container' {style}>
-		<svelte-scroller-background bind:this={background}>
-			<slot name="background"></slot>
-		</svelte-scroller-background>
-	</svelte-scroller-background-container>
-
-	<svelte-scroller-foreground bind:this={foreground}>
-		<slot name="foreground"></slot>
-	</svelte-scroller-foreground>
-</svelte-scroller-outer>
