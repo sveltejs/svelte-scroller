@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.1
+
+* Make `offset` continuous before and after foreground passes threshold
+
 ## 2.0.0
 
 * Update for Svelte 3

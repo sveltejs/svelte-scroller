@@ -136,33 +136,27 @@
 		if (progress <= 0) {
 			offset_top = 0;
 			fixed = false;
-			offset = 0;
-			index = -1;
 		} else if (progress >= 1) {
 			offset_top = parallax
 				? (foreground_height - background_height)
 				: (foreground_height - available_space);
 			fixed = false;
-			offset = 1;
-			index = sections.length - 1;
 		} else {
 			offset_top = parallax ?
 				Math.round(top_px - progress * (background_height - available_space)) :
 				top_px;
 			fixed = true;
+		}
 
-			for (index = 0; index < sections.length; index += 1) {
-				const section = sections[index];
-				const { top } = section.getBoundingClientRect();
+		for (index = 0; index < sections.length; index += 1) {
+			const section = sections[index];
+			const { top } = section.getBoundingClientRect();
 
-				const next = sections[index + 1];
-				const bottom = next ? next.getBoundingClientRect().top : fg.bottom;
+			const next = sections[index + 1];
+			const bottom = next ? next.getBoundingClientRect().top : fg.bottom;
 
-				if (bottom >= threshold_px) {
-					offset = (threshold_px - top) / (bottom - top);
-					break;
-				}
-			}
+			offset = (threshold_px - top) / (bottom - top);
+			if (bottom >= threshold_px) break;
 		}
 	}
 
