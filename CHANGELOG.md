@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.2
+
+* Use dimension bindings rather than `resize` handler for better reliability
+
 ## 2.0.1
 
 * Make `offset` continuous before and after foreground passes threshold
