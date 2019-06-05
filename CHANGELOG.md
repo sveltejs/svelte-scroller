@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.3
+
+* Undo previous change 😬
+
 ## 2.0.2
 
 * Use dimension bindings rather than `resize` handler for better reliability
