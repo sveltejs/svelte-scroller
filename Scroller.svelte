@@ -81,8 +81,7 @@
 
 	let outer;
 	let foreground;
-	let foreground_height;
-	let background_height;
+	let background;
 	let left;
 	let sections;
 	let wh = 0;
@@ -110,9 +109,6 @@
 		sections = foreground.querySelectorAll(query);
 		count = sections.length;
 
-		foreground_height = foreground.clientHeight;
-
-		handle_resize();
 		update();
 
 		const scroller = { outer, update };
@@ -124,8 +120,17 @@
 	function update() {
 		if (!foreground) return;
 
+		// re-measure outer container
+		const bcr = outer.getBoundingClientRect();
+		left = bcr.left;
+		width = bcr.right - left;
+
 		// determine fix state
 		const fg = foreground.getBoundingClientRect();
+		const bg = background.getBoundingClientRect();
+
+		const foreground_height = fg.bottom - fg.top;
+		const background_height = bg.bottom - bg.top;
 
 		const available_space = bottom_px - top_px;
 		progress = (top_px - fg.top) / (foreground_height - available_space);
@@ -156,23 +161,18 @@
 			if (bottom >= threshold_px) break;
 		}
 	}
-
-	function handle_resize() {
-		const bcr = outer.getBoundingClientRect();
-		left = bcr.left;
-	}
 </script>
 
-<svelte:window bind:innerHeight={wh} on:resize={handle_resize}/>
+<svelte:window bind:innerHeight={wh}/>
 
-<svelte-scroller-outer bind:this={outer} bind:clientWidth={width}>
+<svelte-scroller-outer bind:this={outer}>
 	<svelte-scroller-background-container class='background-container' {style}>
-		<svelte-scroller-background bind:clientHeight={background_height}>
+		<svelte-scroller-background bind:this={background}>
 			<slot name="background"></slot>
 		</svelte-scroller-background>
 	</svelte-scroller-background-container>
 
-	<svelte-scroller-foreground bind:this={foreground} bind:clientHeight={foreground_height}>
+	<svelte-scroller-foreground bind:this={foreground}>
 		<slot name="foreground"></slot>
 	</svelte-scroller-foreground>
 </svelte-scroller-outer>
