@@ -3,13 +3,10 @@
 	let manager;
 
 	if (typeof window !== 'undefined') {
-		function run(fn) {
-			fn();
-		}
+		const run_all = () => handlers.forEach(fn => fn());
 
-		window.addEventListener('scroll', () => {
-			handlers.forEach(run);
-		});
+		window.addEventListener('scroll', run_all);
+		window.addEventListener('resize', run_all);
 	}
 
 	if (typeof IntersectionObserver !== 'undefined') {

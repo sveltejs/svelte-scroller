@@ -28,7 +28,7 @@ test('exists', t => {
 		target
 	});
 
-	assert.equal(app.scroller.index, -1);
+	assert.equal(app.scroller.index, 0);
 	assert.equal(app.scroller.count, 0);
 	assert.equal(app.scroller.top, 0);
 	assert.equal(app.scroller.bottom, 1);
