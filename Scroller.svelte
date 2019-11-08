@@ -75,6 +75,7 @@
 	export let count = 0;
 	export let offset = 0;
 	export let progress = 0;
+	export let visible = false;
 
 	let outer;
 	let foreground;
@@ -125,6 +126,8 @@
 		// determine fix state
 		const fg = foreground.getBoundingClientRect();
 		const bg = background.getBoundingClientRect();
+
+		visible = fg.top < wh && fg.bottom > 0;
 
 		const foreground_height = fg.bottom - fg.top;
 		const background_height = bg.bottom - bg.top;

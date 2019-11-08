@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.5
+
+* Add `visible` binding
+
 ## 2.0.4
 
 * Run handlers on window resize
