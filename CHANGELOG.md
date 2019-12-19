@@ -1,5 +1,9 @@
 # svelte-scroller changelog
 
+## 2.0.6
+
+* Prevent offscreen scrollers from overflowing their containers
+
 ## 2.0.5
 
 * Add `visible` binding

@@ -205,6 +205,7 @@
 		display: block;
 		position: absolute;
 		width: 100%;
+		max-width: 100%;
 		pointer-events: none;
 		/* height: 100%; */
 
