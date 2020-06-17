@@ -14,6 +14,8 @@ yarn add @sveltejs/svelte-scroller
 ```html
 <script>
   import Scroller from '@sveltejs/svelte-scroller';
+  
+  let index, offset, progress;
 </script>
 
 <style>
