@@ -150,15 +150,18 @@
 			fixed = true;
 		}
 
-		for (index = 0; index < sections.length; index += 1) {
-			const section = sections[index];
+		for (let i = 0; i < sections.length; i++) {
+			const section = sections[i];
 			const { top } = section.getBoundingClientRect();
 
-			const next = sections[index + 1];
+			const next = sections[i + 1];
 			const bottom = next ? next.getBoundingClientRect().top : fg.bottom;
 
 			offset = (threshold_px - top) / (bottom - top);
-			if (bottom >= threshold_px) break;
+			if (bottom >= threshold_px) {
+				index = i;
+				break;
+			}
 		}
 	}
 </script>
