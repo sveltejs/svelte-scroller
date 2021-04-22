@@ -84,7 +84,7 @@
 	let sections;
 	let wh = 0;
 	let fixed;
-	let offset_top;
+	let offset_top = 0;
 	let width = 1;
 	let height;
 	let inverted;
