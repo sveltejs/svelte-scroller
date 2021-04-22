@@ -99,9 +99,10 @@
 		position: ${fixed ? 'fixed' : 'absolute'};
 		top: 0;
 		transform: translate(0, ${offset_top}px);
-		width: ${width}px;
 		z-index: ${inverted ? 3 : 1};
 	`;
+
+	$: widthStyle = fixed ? `width:${width}px;` : '';
 
 	onMount(() => {
 		sections = foreground.querySelectorAll(query);
@@ -166,7 +167,7 @@
 <svelte:window bind:innerHeight={wh}/>
 
 <svelte-scroller-outer bind:this={outer}>
-	<svelte-scroller-background-container class='background-container' {style}>
+	<svelte-scroller-background-container class='background-container' style="{style}{widthStyle}">
 		<svelte-scroller-background bind:this={background}>
 			<slot name="background"></slot>
 		</svelte-scroller-background>
