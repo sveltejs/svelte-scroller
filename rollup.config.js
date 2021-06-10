@@ -13,7 +13,10 @@ export default [
 			resolve(),
 			commonjs(),
 			svelte({
-				accessors: true
+				compilerOptions: {
+					accessors: true
+				},
+				emitCss: false
 			})
 		]
 	}

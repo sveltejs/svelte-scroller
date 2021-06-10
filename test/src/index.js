@@ -23,7 +23,7 @@ assert.htmlEqual = (a, b, msg) => {
 };
 
 // tests
-test('exists', t => {
+test('exists', (t) => {
 	const app = new App({
 		target
 	});
