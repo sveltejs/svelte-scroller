@@ -54,6 +54,7 @@ The following parameters are available:
 | threshold | 0.5       | Once a section crosses this point, it becomes 'active'                                                                                                                                                              |
 | query     | 'section' | A CSS selector that describes the individual sections of your foreground                                                                                                                                            |
 | parallax  | false     | If `true`, the background will scroll such that the bottom edge reaches the `bottom` at the same time as the foreground. This effect can be unpleasant for people with high motion sensitivity, so use it advisedly |
+| foregroundZIndex  | 2     | lets you specify the z-index of the foreground |
 
 ## `index`, `offset`, `progress` and `count`
 

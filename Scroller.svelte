@@ -76,6 +76,7 @@
 	export let offset = 0;
 	export let progress = 0;
 	export let visible = false;
+  export let foregroundZIndex = 2;
 
 	let outer;
 	let foreground;
@@ -176,7 +177,7 @@
 		</svelte-scroller-background>
 	</svelte-scroller-background-container>
 
-	<svelte-scroller-foreground bind:this={foreground}>
+	<svelte-scroller-foreground style="z-index: {foregroundZIndex}" bind:this={foreground}>
 		<slot name="foreground"></slot>
 	</svelte-scroller-foreground>
 </svelte-scroller-outer>
@@ -196,7 +197,6 @@
 	svelte-scroller-foreground {
 		display: block;
 		position: relative;
-		z-index: 2;
 	}
 
 	svelte-scroller-foreground::after {
