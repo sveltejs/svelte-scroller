@@ -83,7 +83,6 @@
 	let left;
 	let sections;
 	let wh = 0;
-	let fixed;
 	let offset_top = 0;
 	let width = 1;
 	let height;
@@ -96,13 +95,9 @@
 	$: (top, bottom, threshold, parallax, update());
 
 	$: style = `
-		position: ${fixed ? 'fixed' : 'absolute'};
-		top: 0;
 		transform: translate(0, ${offset_top}px);
 		z-index: ${inverted ? 3 : 1};
 	`;
-
-	$: widthStyle = fixed ? `width:${width}px;` : '';
 
 	onMount(() => {
 		sections = foreground.querySelectorAll(query);
@@ -138,17 +133,14 @@
 
 		if (progress <= 0) {
 			offset_top = 0;
-			fixed = false;
 		} else if (progress >= 1) {
 			offset_top = parallax
 				? (foreground_height - background_height)
 				: (foreground_height - available_space);
-			fixed = false;
 		} else {
 			offset_top = parallax ?
 				Math.round(top_px - progress * (background_height - available_space)) :
 				top_px;
-			fixed = true;
 		}
 
 		for (let i = 0; i < sections.length; i++) {
@@ -170,7 +162,7 @@
 <svelte:window bind:innerHeight={wh}/>
 
 <svelte-scroller-outer bind:this={outer}>
-	<svelte-scroller-background-container class='background-container' style="{style}{widthStyle}">
+	<svelte-scroller-background-container class='background-container' style="{style}">
 		<svelte-scroller-background bind:this={background}>
 			<slot name="background"></slot>
 		</svelte-scroller-background>
@@ -207,7 +199,8 @@
 
 	svelte-scroller-background-container {
 		display: block;
-		position: absolute;
+		position: sticky;
+		top: 0;
 		width: 100%;
 		max-width: 100%;
 		pointer-events: none;
